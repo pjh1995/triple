@@ -1,8 +1,9 @@
-import { DefaultSeo } from 'next-seo';
-import { DEFAULT_SEO } from '@/utils';
-import type { AppProps } from 'next/app';
+import { DefaultSeo } from 'next-seo'
+import { DEFAULT_SEO } from '@/utils'
+import type { AppProps } from 'next/app'
 
-import '../styles/globals.css';
+import '../styles/globals.css'
+import '../styles/fonts.css'
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -10,7 +11,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <DefaultSeo {...DEFAULT_SEO} />
       <Component {...pageProps} />
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp
