@@ -1,8 +1,10 @@
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode } from 'react'
 
 interface IProps {
-  test: boolean;
-  children: ReactNode;
+  test: boolean
+  children: ReactNode
 }
 
-export const Maybe: FC<IProps> = ({ test, children }) => <>{test ? children : null}</>;
+export const Maybe: FC<IProps> = ({ test, children }) => (
+  <>{test ? children : null}</>
+)

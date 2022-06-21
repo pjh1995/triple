@@ -13,6 +13,6 @@ const Body: FC = () => {
 export default Body
 
 const Main = styled.main`
-  height: 100vh
+  height: 100vh;
   margin-top:20%;
 `;
