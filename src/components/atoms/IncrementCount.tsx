@@ -1,7 +1,7 @@
-import React, { FC, useRef, useEffect } from 'react'
+import React, { FC } from 'react'
 
 import { useAnimation } from '@/hooks'
-import type { EasingKey } from '@/type'
+import type { EasingKey } from '@/types'
 
 interface Iprops {
   count: number
@@ -12,18 +12,8 @@ interface Iprops {
 
 export const IncrementCount: FC<Iprops> = (props) => {
   const { animationName, count = 0, duration = 2000, delay = 0 } = props
-  const Ref = useRef<HTMLElement>(null)
-  const changeRate = useRef(0)
-  changeRate.current = useAnimation(animationName, duration, delay)
+  const changeRate = useAnimation(animationName, duration, delay)
+  const number = Math.ceil(changeRate * count)
 
-  useEffect(() => {
-    if (!Ref.current) {
-      return
-    }
-    const percent = Number(changeRate.current.toFixed(2))
-    const num = Math.ceil(count * percent)
-    Ref.current.innerText = num.toString()
-  }, [count])
-
-  return <span ref={Ref} />
+  return <span>{number}</span>
 }
