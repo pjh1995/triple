@@ -3,26 +3,29 @@ import styled from 'styled-components'
 import Image from 'next/image'
 
 import { IncrementCount } from '@/components/atoms'
+import { useIsElementInViewport } from '@/hooks'
 
 const WrapContainer = styled.article`
   display: flex;
   justify-content: center;
   gap: 20%;
   font-family: sans-serif;
-
-  .fade-in {
-    animation: fadeInUp 700ms ease-in-out;
-  }
 `
 
-const FadeInUp = styled.div<{ animationDelay: number }>`
+const FadeInUp = styled.div<{
+  animationDelay: number
+  animationPlay?: boolean
+}>`
   animation: fadeInUp 700ms ease-in-out;
   animation-delay: ${({ animationDelay }) => `${animationDelay}ms`};
+  animation-play-state: ${({ animationPlay = true }) =>
+    animationPlay ? 'running' : 'paused'};
 `
 
 const Logo = styled(FadeInUp)`
   position: relative;
   width: calc(100% / 3);
+  height: fit-content;
   text-align: center;
   animation-delay: 100ms;
 
@@ -77,19 +80,37 @@ export const Achivements: FC = () => {
   const userCount = 100
   const reviewCount = 100
   const scheduleCount = 470
+  const logoText = '2019년 2월 기준'
+  const { elementRef, isVisible } = useIsElementInViewport({
+    once: true,
+    rootMargin: '0px 0px -10% 0px',
+  })
+
   return (
-    <WrapContainer>
-      <Logo animationDelay={0}>
+    <WrapContainer ref={elementRef}>
+      <Logo animationDelay={0} animationPlay={isVisible}>
         <img src="/assets/img/triple@2x.png" alt="logo" />
-        <span>2019년 2월 기준</span>
+        <span>{logoText}</span>
       </Logo>
       <section>
-        <Metric animationDelay={100}>
-          <MetricItem count={userCount} text="의 여행자" />
-          <MetricItem count={reviewCount} text="의 여행 리뷰" />
-          <MetricItem count={scheduleCount} text="의 여행 일정" />
+        <Metric animationDelay={100} animationPlay={isVisible}>
+          <MetricItem
+            count={userCount}
+            text="의 여행자"
+            isVisible={isVisible}
+          />
+          <MetricItem
+            count={reviewCount}
+            text="의 여행 리뷰"
+            isVisible={isVisible}
+          />
+          <MetricItem
+            count={scheduleCount}
+            text="의 여행 일정"
+            isVisible={isVisible}
+          />
         </Metric>
-        <Award animationDelay={200}>
+        <Award animationDelay={200} animationPlay={isVisible}>
           <AwardItem src="/assets/img/play-store@2x.png" alt="플레이스토어">
             2018 구글 플레이스토어
             <br />
@@ -106,12 +127,24 @@ export const Achivements: FC = () => {
   )
 }
 
-function MetricItem(props: { count: number; text: string }) {
+function MetricItem(props: {
+  count: number
+  text: string
+  isVisible: boolean
+}) {
   return (
     <div>
-      <strong>
-        <IncrementCount count={props.count} animationName="quadratic" />만 개
-      </strong>
+      {props.isVisible ? (
+        <>
+          <strong>
+            <IncrementCount count={props.count} animationName="quadratic" />만
+            개
+          </strong>
+        </>
+      ) : (
+        <>{props.count}</>
+      )}
+
       {props.text}
     </div>
   )
