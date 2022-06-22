@@ -57,7 +57,7 @@ const Award = styled(FadeInUp)`
   gap: 2.5rem;
   color: rgba(58, 58, 58, 0.8);
   animation-delay: 300ms;
-  & > {
+  & > * {
     display: flex;
     gap: 10px;
     align-items: center;
@@ -80,7 +80,7 @@ export const Achivements: FC = () => {
   return (
     <WrapContainer>
       <Logo animationDelay={0}>
-        <img src="/assets/img/triple@2x.png" alt="sss" />
+        <img src="/assets/img/triple@2x.png" alt="logo" />
         <span>2019년 2월 기준</span>
       </Logo>
       <section>
@@ -90,7 +90,7 @@ export const Achivements: FC = () => {
           <MetricItem count={scheduleCount} text="의 여행 일정" />
         </Metric>
         <Award animationDelay={200}>
-          <AwardItem src="/assets/img/badge-apple@4x.png" alt="애플 뱃지">
+          <AwardItem src="/assets/img/play-store@2x.png" alt="플레이스토어">
             2018 구글 플레이스토어
             <br />
             올해의 앱 최우수상 수상
