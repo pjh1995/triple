@@ -1,21 +1,28 @@
 {
   "name": "triple",
   "version": "0.1.0",
+  "prettier": "@titicaca/eslint-config-triple/prettierrc",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:es": "eslint '**/*.{js,ts,tsx}'",
+    "lint:es:fix": "npm run lint:es -- --fix",
+    "lint:etc": "prettier '**/*.{json,yaml,md}' --check",
+    "lint:etc:fix": "prettier '**/*.{json,yaml,md}' --write"
   },
   "dependencies": {
     "next": "12.1.6",
     "next-seo": "5.4.0",
-    "react": "18.2.0",
+    "react": "^17.0.2",
     "react-dom": "18.2.0",
-    "styled-components": "5.3.5"
+    "styled-components": "5.3.5",
+    "ts-easing": "0.2.0"
   },
   "devDependencies": {
+    "@titicaca/eslint-config-triple": "3.1.0",
     "@types/node": "18.0.0",
     "@types/react": "18.0.14",
     "@types/react-dom": "18.0.5",
