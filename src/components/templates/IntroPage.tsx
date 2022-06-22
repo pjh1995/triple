@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 
 import { Layout } from '@/components/atoms'
-import { IntroBody } from '@/components/organisms/intro'
+import { Intro } from '@/components/organisms'
 
 export const IntroPage: FC = () => {
   return (
     <Layout>
-      <IntroBody />
+      <Intro.Body />
     </Layout>
   )
 }
