@@ -1,1 +1,1 @@
-export { default as IntroBody } from './Body';
+export { default as IntroBody } from './Body'

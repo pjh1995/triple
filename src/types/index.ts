@@ -1,3 +1,3 @@
-import { easing } from "ts-easing";
+import { easing } from 'ts-easing'
 
-export type EasingKey = keyof typeof easing;
+export type EasingKey = keyof typeof easing

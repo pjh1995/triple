@@ -1,6 +1,6 @@
-import { IntroPage } from '@/components/templates'
-
 import type { NextPage } from 'next'
+
+import { IntroPage } from '@/components/templates'
 
 const Home: NextPage = () => <IntroPage />
 

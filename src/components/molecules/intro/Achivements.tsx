@@ -1,60 +1,8 @@
 import React, { FC, ReactNode } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
+
 import { IncrementCount } from '@/components/atoms'
-
-export const Achivements: FC = () => {
-  const userCount = 100
-  const reviewCount = 100
-  const scheduleCount = 470
-  return (
-    <WrapContainer>
-      <Logo animationDelay={0}>
-        <img src="/assets/img/triple@2x.png" alt="sss" />
-        <span>2019년 2월 기준</span>
-      </Logo>
-      <section>
-        <Metric animationDelay={100}>
-          <MetricItem count={userCount} text="의 여행자" />
-          <MetricItem count={reviewCount} text="의 여행 리뷰" />
-          <MetricItem count={scheduleCount} text="의 여행 일정" />
-        </Metric>
-        <Award animationDelay={200}>
-          <AwardItem src="/assets/img/badge-apple@4x.png" alt="애플 뱃지">
-            2018 구글 플레이스토어
-            <br />
-            올해의 앱 최우수상 수상
-          </AwardItem>
-          <AwardItem src="/assets/img/badge-apple@4x.png" alt="애플 뱃지">
-            2018 애플 앱스토어
-            <br />
-            오늘의 여행앱 선정
-          </AwardItem>
-        </Award>
-      </section>
-    </WrapContainer>
-  )
-}
-
-function MetricItem(props: { count: number; text: string }) {
-  return (
-    <div>
-      <strong>
-        <IncrementCount count={props.count} animationName="quadratic" />만 개
-      </strong>
-      {props.text}
-    </div>
-  )
-}
-
-function AwardItem(props: { src: string; alt: string; children: ReactNode }) {
-  return (
-    <div>
-      <Image src={props.src} width="54" height="54" alt={props.alt} />
-      <span className="f-md f-gray">{props.children}</span>
-    </div>
-  )
-}
 
 const WrapContainer = styled.article`
   display: flex;
@@ -124,3 +72,56 @@ const Award = styled(FadeInUp)`
     }
   }
 `
+
+export const Achivements: FC = () => {
+  const userCount = 100
+  const reviewCount = 100
+  const scheduleCount = 470
+  return (
+    <WrapContainer>
+      <Logo animationDelay={0}>
+        <img src="/assets/img/triple@2x.png" alt="sss" />
+        <span>2019년 2월 기준</span>
+      </Logo>
+      <section>
+        <Metric animationDelay={100}>
+          <MetricItem count={userCount} text="의 여행자" />
+          <MetricItem count={reviewCount} text="의 여행 리뷰" />
+          <MetricItem count={scheduleCount} text="의 여행 일정" />
+        </Metric>
+        <Award animationDelay={200}>
+          <AwardItem src="/assets/img/badge-apple@4x.png" alt="애플 뱃지">
+            2018 구글 플레이스토어
+            <br />
+            올해의 앱 최우수상 수상
+          </AwardItem>
+          <AwardItem src="/assets/img/badge-apple@4x.png" alt="애플 뱃지">
+            2018 애플 앱스토어
+            <br />
+            오늘의 여행앱 선정
+          </AwardItem>
+        </Award>
+      </section>
+    </WrapContainer>
+  )
+}
+
+function MetricItem(props: { count: number; text: string }) {
+  return (
+    <div>
+      <strong>
+        <IncrementCount count={props.count} animationName="quadratic" />만 개
+      </strong>
+      {props.text}
+    </div>
+  )
+}
+
+function AwardItem(props: { src: string; alt: string; children: ReactNode }) {
+  return (
+    <div>
+      <Image src={props.src} width="54" height="54" alt={props.alt} />
+      <span className="f-md f-gray">{props.children}</span>
+    </div>
+  )
+}

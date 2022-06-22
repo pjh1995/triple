@@ -1,18 +1,19 @@
-import React, { FC } from 'react';
-import styled from 'styled-components';
-import { Achivements } from '@/components/molecules/intro';
+import React, { FC } from 'react'
+import styled from 'styled-components'
 
-const Body: FC = () => {
-  return (
-        <Main>
-            <Achivements />
-        </Main>
-  );
-};
-
-export default Body
+import { Achivements } from '@/components/molecules/intro'
 
 const Main = styled.main`
   height: 100vh;
-  margin-top:20%;
-`;
+  margin-top: 20%;
+`
+
+const Body: FC = () => {
+  return (
+    <Main>
+      <Achivements />
+    </Main>
+  )
+}
+
+export default Body

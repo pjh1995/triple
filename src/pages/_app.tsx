@@ -1,6 +1,7 @@
 import { DefaultSeo } from 'next-seo'
-import { DEFAULT_SEO } from '@/utils'
 import type { AppProps } from 'next/app'
+
+import { DEFAULT_SEO } from '@/utils'
 
 import '../styles/globals.css'
 import '../styles/fonts.css'

@@ -1,10 +1,10 @@
 import React, { FC, ReactNode } from 'react'
 
-interface IProps {
+interface MaybeProps {
   test: boolean
   children: ReactNode
 }
 
-export const Maybe: FC<IProps> = ({ test, children }) => (
+export const Maybe: FC<MaybeProps> = ({ test, children }) => (
   <>{test ? children : null}</>
 )

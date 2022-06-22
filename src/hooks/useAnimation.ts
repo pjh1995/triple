@@ -1,14 +1,15 @@
-import { useAnimationTimer } from "./useAnimationTimer";
-import { easing } from "ts-easing";
+import { easing } from 'ts-easing'
 
-import { EasingKey } from "@/types";
+import { EasingKey } from '@/types'
+
+import { useAnimationTimer } from './useAnimationTimer'
 
 export function useAnimation(
-  easingKey: EasingKey = "linear",
+  easingKey: EasingKey = 'linear',
   duration = 500,
   delay = 0,
 ): number {
-  const elapsed = useAnimationTimer(duration, delay);
-  const n = Math.min(1, elapsed / duration);
+  const elapsed = useAnimationTimer(duration, delay)
+  const n = Math.min(1, elapsed / duration)
   return easing[easingKey](n)
 }
