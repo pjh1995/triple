@@ -1,4 +1,4 @@
-import React, { FC, Fragment, useRef, useEffect } from 'react'
+import React, { FC, useRef, useEffect } from 'react'
 import { useAnimation } from '@/hooks'
 
 import type { EasingKey } from '@/type'
