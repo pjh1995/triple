@@ -1,7 +1,10 @@
 # 실행 방법
 
-1. yarn && yarn build (최초 1회)
-2. yarn start
+```bash
+npm run dev
+# or
+yarn dev
+```
 
 # 기술 스택
 
